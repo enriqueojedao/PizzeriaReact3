@@ -1,0 +1,17 @@
+.card-pizza {
+  max-width: 300px;
+  margin: 30px auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.card-footer {
+  padding: 5px;
+  border-top: 1px solid #ddd;
+}
