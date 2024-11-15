@@ -6,11 +6,13 @@ const CardPizza = ({ name, price, ingredients, img }) => (
     <img src={img} alt={name} className="card-img-top" />
     <div className="card-body d-flex flex-column justify-content-between">
       <h2 className="card-title mb-3">Pizza {name}</h2>
-      <div className="text-center">
-        <p className="mb-0">Ingredientes:</p>
-        <p className="card-text mb-0">
-          🍕 {ingredients.join(", ")}.
-        </p>
+      <div>
+        <p className="mb-0">🍕 Ingredientes:</p>
+        <ul className="ingredients-list">
+          {ingredients.map((ingredient, index) => (
+            <li key={index}>{ingredient}.</li>
+          ))}
+        </ul>
       </div>
       <h4 className="text-center">
         Precio: ${price.toLocaleString()}
@@ -22,4 +24,5 @@ const CardPizza = ({ name, price, ingredients, img }) => (
     </div>
   </div>
 );
+
 export default CardPizza;

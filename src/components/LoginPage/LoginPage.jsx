@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Swal from 'sweetalert2';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { validateCredentials } from '../../tools/loginRegisterTools';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -8,31 +8,8 @@ const LoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (!email || !password) {
-      Swal.fire({
-        title: 'Error',
-        text: 'Todos los campos son obligatorios.',
-        icon: 'error'
-      });
-    } else if (password.length < 6) {
-      Swal.fire({
-        title: 'Error',
-        text: 'La contraseña debe tener al menos 6 caracteres.',
-        icon: 'error'
-      });
-    } else if (password.includes(' ')) {
-      Swal.fire({
-        title: 'Error',
-        text: 'La contraseña no debe contener espacios 🚫.',
-        icon: 'error'
-      });
-    } else {
-      Swal.fire({
-        title: 'Éxito',
-        text: 'Inicio de sesión exitoso ✔️.',
-        icon: 'success'
-      });
+    if (validateCredentials(email, password)) {
+      console.log('Inicio de sesión exitoso');
     }
   };
 
@@ -58,6 +35,7 @@ const LoginPage = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="form-control"
+              required
             />
           </div>
           <button type="submit" className="btn btn-dark w-100">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Swal from 'sweetalert2';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { validateCredentials } from '../../tools/loginRegisterTools';
 
 const RegisterPage = () => {
   const [email, setEmail] = useState('');
@@ -9,37 +9,8 @@ const RegisterPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    if (!email || !password || !confirmPassword) {
-      Swal.fire({
-        title: 'Error',
-        text: 'Todos los campos son obligatorios.',
-        icon: 'error',
-      });
-    } else if (password.length < 6) {
-      Swal.fire({
-        title: 'Error',
-        text: 'La contraseña debe tener al menos 6 caracteres.',
-        icon: 'error',
-      });
-    } else if (password.includes(' ')) {
-      Swal.fire({
-        title: 'Error',
-        text: 'La contraseña no debe contener espacios 🚫.',
-        icon: 'error',
-      });
-    } else if (password !== confirmPassword) {
-      Swal.fire({
-        title: 'Error',
-        text: 'El password y la confirmación deben ser iguales.🔍.',
-        icon: 'error',
-      });
-    } else {
-      Swal.fire({
-        title: 'Éxito',
-        text: 'Registro exitoso ✔️.',
-        icon: 'success',
-      });
+    if (validateCredentials(email, password, confirmPassword)) {
+      console.log('Registro exitoso');
     }
   };
 
@@ -86,4 +57,3 @@ const RegisterPage = () => {
 };
 
 export default RegisterPage;
-

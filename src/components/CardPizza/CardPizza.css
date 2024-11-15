@@ -15,3 +15,15 @@
   padding: 5px;
   border-top: 1px solid #ddd;
 }
+
+
+.ingredients-list {
+  list-style-type: disc;      
+  padding-left: 20px;         
+  text-align: left;           
+}
+
+.ingredients-list li {
+  text-transform: capitalize; 
+  margin-bottom: 4px;         
+}

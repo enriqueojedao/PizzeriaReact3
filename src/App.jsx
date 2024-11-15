@@ -4,6 +4,7 @@ import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import LoginPage from './components/LoginPage/LoginPage';
+import Cart from './components/Cart/Cart';
 
 const App = () => {
   return (
@@ -11,7 +12,8 @@ const App = () => {
       <Navbar />
       {/* <Home /> */}
       {/* <RegisterPage /> */}
-      <LoginPage />
+      {/* <LoginPage /> */}
+      <Cart />
       <Footer />
     </div>
   );
